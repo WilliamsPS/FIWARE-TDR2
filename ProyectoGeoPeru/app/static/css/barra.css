@@ -1,0 +1,132 @@
+
+.contenedor-navs {
+    display: flex;
+}
+
+.logo, .barra {
+    display: flex;
+    align-items: center;
+    
+    background-color: #bd0003;
+    min-height: 55px;
+    
+    
+}
+
+.barra {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.barra a {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    top: 0;
+    left: 0;
+    font-size: 1.1em;
+    color: #a39e9e;
+    text-decoration: none;
+    padding: 6px 20px;
+    margin-right: 15px;
+}
+
+.barra a:hover {
+    color: #ffffff;
+}
+
+.barra a:last-child {
+    margin-left: 0;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 55px;
+}
+
+.logo img {
+    margin-left: 15px; 
+}
+
+.barra2 {
+  background-color: #F2D0D0;
+}
+
+/*pie de pagina */
+
+.latitud, .longitud, .altitud { 
+  flex: 1;
+  text-align: left;
+  padding-left: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: 2px solid #000;
+}
+.latitud {
+  background: linear-gradient(180deg, #d000e280 77.60%, #f606c214 100%);
+}
+
+.longitud{
+  background: linear-gradient(180deg, #132c6c80 78.65%, #132c6c00 100%);
+}
+
+.altitud {
+  background: linear-gradient(180deg, #e0601780 73.96%, #854a1314 100%);
+}
+
+/*dispositivos */
+
+.dispositivos-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.on, .off {
+  text-align: left;
+  padding-left: 4px;
+  flex: 1;
+  width: 70px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+.dispositivos {
+  display: flex;
+  text-align: left;
+  padding-left: 4px;
+  width: 120px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  background: #481e7d80;
+}
+
+.on {
+  margin-left: 20px;
+  margin-right: 5px;
+  background: #00fe1980;
+}
+
+.off {
+  background: #00162b80;
+}
+
+/*mediciones*/
+
+.sensor {
+  display: flex;
+  align-items: center;
+}
+
+.ciru {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 5px;
+  background-color: #00FF00; 
+}

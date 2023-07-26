@@ -1,0 +1,28 @@
+/* Estilos para el contenedor del mapa */
+#map {
+  width: 100%;
+  height: 544px;
+  /*margin-top: 40px;*/
+  }
+  
+  /* Estilos para el cuerpo de la página */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos para el encabezado de la página */
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .custom-icon {
+    display: none;
+}
+  
+
+
+/* Estilo para los círculos */

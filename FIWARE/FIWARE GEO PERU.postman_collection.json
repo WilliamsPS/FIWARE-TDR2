@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "a4d44809-9607-45ad-8107-e3d4bca6b844",
+		"name": "FIWARE GEO PERU",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19372000"
+	},
+	"item": [
+		{
+			"name": "http://localhost:1026/version/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1026/version/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"version",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4041/iot/about",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4041/iot/about",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"about"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4041/iot/services",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/CalidadAire",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"services\": [\r\n   {\r\n       //puedo generar a mi gustos el apikey\r\n     \"apikey\":\"4jggokgpepnvsb2uv4s40d59ov\",\r\n     \"cbroker\":\"http://orion:1026\",\r\n     //\r\n     \"entity_type\":\"Thing\",\r\n     //grupo a donde envia la data FIWARE/orionLD\r\n     \"resource\":\"/iot/json\"\r\n   }\r\n ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4041/iot/services",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4041/iot/devices",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/CalidadAire",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"devices\": [\r\n        {\r\n            \"device_id\": \"thing003\",\r\n            \"entity_name\": \"urn:ngsi:Thing:003\",\r\n            \"entity_type\": \"Thing\",\r\n            \"timezone\": \"America/Lima\",\r\n            \"expressionLanguage\": \"jexl\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"t\",\r\n                    \"name\": \"temperatura\",\r\n                    \"type\": \"Float\"\r\n                },\r\n                {\r\n                    \"object_id\": \"p\",\r\n                    \"name\": \"presion\",\r\n                    \"type\": \"Float\"\r\n                },\r\n                {\r\n                    \"object_id\": \"h\",\r\n                    \"name\": \"Value\",\r\n                    \"type\": \"Float\"\r\n                },\r\n                {\r\n                    \"object_id\": \"gs\",\r\n                    \"name\": \"gas\",\r\n                    \"type\": \"int\"\r\n                },\r\n                {\r\n                    \"object_id\": \"alt\",\r\n                    \"name\": \"altitud\",\r\n                    \"type\": \"Float\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4041/iot/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7896/iot/json?k=4jggokgpepnvsb2uv4s40d59ov&i=thing003",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"t\": 15,\r\n    \"p\": 1000,\r\n    \"h\": 60,\r\n    \"gs\": 0.5,\r\n    \"alt\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7896/iot/json?k=4jggokgpepnvsb2uv4s40d59ov&i=thing003",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7896",
+					"path": [
+						"iot",
+						"json"
+					],
+					"query": [
+						{
+							"key": "k",
+							"value": "4jggokgpepnvsb2uv4s40d59ov"
+						},
+						{
+							"key": "i",
+							"value": "thing003"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4041/iot/devices/thing001",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/CalidadAire",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"attributes\": [\r\n                {\r\n                    \"object_id\": \"t\",\r\n                    \"name\": \"temperature\",\r\n                    \"type\": \"Float\"\r\n                },\r\n                {\r\n                    \"object_id\": \"p\",\r\n                    \"name\": \"pressure\",\r\n                    \"type\": \"Float\"\r\n                },\r\n                {\r\n                    \"object_id\": \"h\",\r\n                    \"name\": \"humidity\",\r\n                    \"type\": \"Float\"\r\n                },\r\n                {\r\n                    \"object_id\": \"gs\",\r\n                    \"name\": \"gas\",\r\n                    \"type\": \"Float\"\r\n                },\r\n                {\r\n                    \"object_id\": \"alt\",\r\n                    \"name\": \"altitude\",\r\n                    \"type\": \"Float\"\r\n                }\r\n            ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4041/iot/devices/thing001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"devices",
+						"thing001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1026/v2/entities/urn:ngsi-ld:Thing:001",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/CalidadAire",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1026/v2/entities/urn:ngsi-ld:Thing:001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities",
+						"urn:ngsi-ld:Thing:001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4041/iot/services",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/CalidadAire",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4041/iot/services",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1026/v2/subscriptions/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/CalidadAire",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"Notify Cygnus of all context changes\",\r\n  \"subject\": {\r\n    \"entities\": [\r\n      {\r\n        \"idPattern\": \".*\"\r\n      }\r\n    ]\r\n  },\r\n  \"notification\": {\r\n    \"http\": {\r\n      \"url\": \"http://cygnus:5055/notify\"\r\n    }\r\n  },\r\n  \"throttling\": 5\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/subscriptions/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"subscriptions",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
